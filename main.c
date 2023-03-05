@@ -38,7 +38,7 @@ int Game(){
     printf("\n|                 BONG GAME               |");
     printf("\n|                By stuartis              |");
     printf("\n-------------------------------------------");
-    while(P2score!=21 || P1score!=21){
+    while(P2score<21 && P1score<21){
         char action;
         action = getchar();
         check = NewGame(BallpositionX);
@@ -72,8 +72,6 @@ int Game(){
  
             Position1player = Position1playerMoveUp(Position1player);
  
-            P1score = P1Score(P1score,BallpositionX);
-            P2score = P2Score(P2score,BallpositionX);
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
         
         }else if(action == 'Z' || action == 'z' && Position1player <24){
@@ -86,8 +84,6 @@ int Game(){
             
             Position1player = Position1playerMoveDown(Position1player);
  
-            P1score = P1Score(P1score,BallpositionX);
-            P2score = P2Score(P2score,BallpositionX);
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
             
         }else if(action == 'K' || action == 'k' && Position2player >1){
@@ -100,8 +96,6 @@ int Game(){
  
             Position2player = Position2playerMoveUp(Position2player);
  
-            P1score = P1Score(P1score,BallpositionX);
-            P2score = P2Score(P2score,BallpositionX);
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
             
         }else if(action == 'M' || action == 'm' && Position2player <24){
@@ -114,25 +108,20 @@ int Game(){
  
             Position2player = Position2playerMoveDown(Position2player);
  
-            P1score = P1Score(P1score,BallpositionX);
-            P2score = P2Score(P2score,BallpositionX);
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
-            
-        }else if(action == '\n'){
+        
+        }else if(action == 'Q' || action == 'q'){
+            ClearScreen();
+            P2score=+ 21;
+            break;
+        }else if (action == ' '){
             ClearScreen();
             BallpositionY = BallmovementY(BallpositionY,BallmoveY);
             BallpositionX = BallmovementX(BallpositionX,BallmoveX);
  
             BallmoveY = BallmovementCollision(BallpositionY,BallmoveY);
             BallmoveX = RocketsCollision(Position1player,BallpositionY,Position2player,BallpositionX,BallmoveX);
-            
-            P1score = P1Score(P1score,BallpositionX);
-            P2score = P2Score(P2score,BallpositionX);
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
-        }else if(action == 'Q' || action == 'q'){
-            ClearScreen();
-            P2score=+ 21;
-            break;
         }
     }
     return 0;
