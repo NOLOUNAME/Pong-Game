@@ -1,6 +1,6 @@
 #include <stdio.h>
  
-int game();
+int Game();
 int PrintField(int Position1player,int Position2player,int BallpositionX,int BallpositionY,int P1score,int P2score);
 int Position1playerMoveUp(int Position1player); 
 int Position2playerMoveUp(int Position2player);
@@ -10,7 +10,7 @@ int BallmovementX(int BallpositionX,int BallmoveX);
 int BallmovementY(int BallpositionY,int BallmoveY);
 int BallmovementCollision(int BallpositionY,int BallmoveY);
 int RocketsCollision(int Position1player,int BallpositionY,int Position2player,int BallpositionX, int BallmoveX);
-void clear_sreen();
+void ClearScreen();
 int P1Score(int P1score,int BallpositionX);
 int P2Score(int P2score,int BallpositionX);
 int NewGame(int BallpositionX);
@@ -18,13 +18,13 @@ int NewGame(int BallpositionX);
  
 int main()
 {
-    game();
+    Game();
     return 0;
 }
  
 //main game
  
-int game(){
+int Game(){
     int Position1player = 13;
     int Position2player = 13;
     int BallmoveX = 1;
@@ -45,13 +45,13 @@ int game(){
         if (check) {
             if (check == 2) {
                 P2score = P2Score(P2score,BallpositionX);
-                clear_sreen();
+                ClearScreen();
                 printf("-------------------------------------------");
                 printf("\n|                 Player 2 win            |");
                 printf("\n-------------------------------------------");
             } else {
                 P1score = P1Score(P1score,BallpositionX);
-                clear_sreen();
+                ClearScreen();
                 printf("-------------------------------------------");
                 printf("\n|                 Player 1 win            |");
                 printf("\n-------------------------------------------");
@@ -63,7 +63,7 @@ int game(){
         }
         
         if(action == 'A' || action == 'a' && Position1player >1){
-            clear_sreen();
+            ClearScreen();
             BallpositionY = BallmovementY(BallpositionY,BallmoveY);
             BallpositionX = BallmovementX(BallpositionX,BallmoveX);
  
@@ -77,7 +77,7 @@ int game(){
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
         
         }else if(action == 'Z' || action == 'z' && Position1player <24){
-            clear_sreen();
+            ClearScreen();
             BallpositionY = BallmovementY(BallpositionY,BallmoveY);
             BallpositionX = BallmovementX(BallpositionX,BallmoveX);
  
@@ -91,7 +91,7 @@ int game(){
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
             
         }else if(action == 'K' || action == 'k' && Position2player >1){
-            clear_sreen();
+            ClearScreen();
             BallpositionY = BallmovementY(BallpositionY,BallmoveY);
             BallpositionX = BallmovementX(BallpositionX,BallmoveX);
  
@@ -105,7 +105,7 @@ int game(){
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
             
         }else if(action == 'M' || action == 'm' && Position2player <24){
-            clear_sreen();
+            ClearScreen();
             BallpositionY = BallmovementY(BallpositionY,BallmoveY);
             BallpositionX = BallmovementX(BallpositionX,BallmoveX);
  
@@ -119,7 +119,7 @@ int game(){
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
             
         }else if(action == '\n'){
-            clear_sreen();
+            ClearScreen();
             BallpositionY = BallmovementY(BallpositionY,BallmoveY);
             BallpositionX = BallmovementX(BallpositionX,BallmoveX);
  
@@ -130,7 +130,7 @@ int game(){
             P2score = P2Score(P2score,BallpositionX);
             PrintField(Position1player,Position2player,BallpositionX,BallpositionY,P1score,P2score);
         }else if(action == 'Q' || action == 'q'){
-            clear_sreen();
+            ClearScreen();
             P2score=+ 21;
             break;
         }
@@ -210,7 +210,7 @@ int RocketsCollision(int Position1player,int BallpositionY,int Position2player,i
  
 //clear screen
  
-void clear_sreen(){
+void ClearScreen(){
     printf("\33[0d\33[2J");
 }
  
