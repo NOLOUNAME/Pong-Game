@@ -112,7 +112,7 @@ int Game(){
         
         }else if(action == 'Q' || action == 'q'){
             ClearScreen();
-            P2score=+ 21;
+            P2score= 21;
             break;
         }else if (action == ' '){
             ClearScreen();
