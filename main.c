@@ -215,7 +215,6 @@ int P2Score(int P2score,int BallpositionX){
     if (BallpositionX == 79)
     P2score++;  
     return P2score;
- 
 }
  
 //New round
