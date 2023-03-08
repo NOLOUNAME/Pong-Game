@@ -219,12 +219,12 @@ int P2Score(int P2score,int BallpositionX){
  
 //New round
  
-int NewGame(int ball_position_x) {
+int NewGame(int BallpositionXx) {
     int flag = 0;
-    if (ball_position_x <= 0) {
+    if (BallpositionX <= 0) {
         flag = 1;
     }
-    if (ball_position_x >= 79) {
+    if (BallpositionX >= 79) {
         flag = 2;
     }
     return flag;
